@@ -1,0 +1,20 @@
+{% extends 'music/base.html' %}
+{% block profile %}Active{% endblock %}
+{% block body %}
+<br><br><br><br>
+<div class="col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><b>USERNAME</b></th>
+                        <th><b>EMAIL</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><i>{{request.user.username}}</i></td>
+                    <td><i>{{request.user.email}}</i></td>
+                </tr>
+{% endblock %}

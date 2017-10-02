@@ -1,0 +1,46 @@
+[
+  {
+    "model": "music.album",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "artist": "Justin Beiber",
+      "album_title": "PURPOSE",
+      "genre": "pop",
+      "album_logo": "jb_rfdP2wJ.jpg"
+    }
+  },
+  {
+    "model": "music.album",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "artist": "Chester Bennington",
+      "album_title": "Minutes to Midnight",
+      "genre": "Rock",
+      "album_logo": "linkin.jpg"
+    }
+  },
+  {
+    "model": "music.album",
+    "pk": 20,
+    "fields": {
+      "user": 2,
+      "artist": "Mike Shinoda",
+      "album_title": "One more light",
+      "genre": "pop",
+      "album_logo": "lp_oml_fbog_021417_U6B6KC8.jpg"
+    }
+  },
+  {
+    "model": "music.album",
+    "pk": 21,
+    "fields": {
+      "user": 2,
+      "artist": "Mike and Chester",
+      "album_title": "Transformation",
+      "genre": "Rock",
+      "album_logo": "linkin_park___waiting_for_the_end_2014_style_by_neorock096-d87033v_m0Q3gVI.png"
+    }
+  }
+]

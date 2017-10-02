@@ -1,0 +1,43 @@
+{% extends 'music/base.html' %}
+{% block title %} All Songs {% endblock %}
+{% block music %}Active{% endblock %}
+{% block body %}
+
+<div class="col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SongName</th>
+                        <th>Album Name</th>
+                        <th>Audio</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for album in all_albums %}
+                {% for song in album.song_set.all %}
+                    <tr>
+                        <td>{{song.song_title}}</td>
+                         <td>
+                            {{album.album_title}}
+                        </td>
+                        <td>
+                            <a href="{{song.audio_file.url}}"><span class="badge">Play</span></a>
+                        </td>
+                        <td>
+                            <a href="{% url 'music:deletesong' album.id song.id %}">
+                                <button><span class="glyphicon glyphicon-trash"></span></button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

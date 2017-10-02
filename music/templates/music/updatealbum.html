@@ -1,0 +1,46 @@
+{% extends 'music/base.html' %}
+{% block title %}Update{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 align="center">Update your Album <br><br> </h3> <marquee><span class="badge"><h3>{{album.album_title}}</h3></span></marquee>
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'music/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>What is Mayank2498?</h3>
+                    <p>Mayank2498 is an app that allows you to upload and store all of your music on the cloud.</p>
+                    <h3>How do I add music?</h3>
+                    <p>First, create a new album by filling out the form on this page. Once an album is created you will be able to add/upload songs.</p>
+                    <h3>What are some Album logo best practices?</h3>
+                    <ul>
+                        <li>Have a resolution of 512x512</li>
+                        <li>Remain under the 2MB limit.</li>
+                        <li>Square images look best</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

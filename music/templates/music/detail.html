@@ -1,0 +1,44 @@
+{% extends 'music/base.html' %}
+{% block title %} {{album.album_title}} - {{album.artist}}{% endblock %}
+{% block body %}
+<div class="row">
+<div class="col-sm-6">
+<div class="col-sm-offset-1">
+<img src="{{album.album_logo.url}}" height="350" width="450"><br><br>
+    <span class="badge"><h5>Genre : {{album.genre}}</h5></span><br><br>
+    <span class="badge"><h5>Artist : {{album.artist}}</h5></span><br><br>
+    <span class="badge"><h5>Album Name : {{album.album_title}}</h5></span><br><br>
+</div>
+</div>
+<div class="col-sm-6">
+    <a href="{% url 'music:addsong' album.id  %}"><button type="button" class="btn btn-success">ADD SONG</button></a><br><br>
+<div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SongName</th>
+                        <th>Audio</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for song in album.song_set.all %}
+                    <tr>
+                        <td>{{song.song_title}}</td>
+                        <td>
+                            <a href="{{song.audio_file.url}}"><span class="badge">Play</span></a>
+                        </td>
+                        <td>
+                            <a href="{% url 'music:deletesong' album.id song.id %}">
+                                <button><span class="glyphicon glyphicon-trash"></span></button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

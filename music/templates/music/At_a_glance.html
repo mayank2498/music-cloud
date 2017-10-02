@@ -1,0 +1,26 @@
+
+
+
+{% extends 'music/base.html' %}
+{% load staticfiles %}
+{% block body %}
+<script src="{% static 'music/dynamic_songs.js' %}" type="text/javascript"></script>
+
+<div class="row">
+    <div class="col-sm-6">
+    <div class="col-sm-offset-1">
+        {% for album in albums %}
+            <a href="{% url 'music:details' album.pk %}">
+            <img src="{{ album.album_logo.url }}" width="150" height="150" onmouseout="display(-1)" onmouseover="display({{ album.pk }})">
+            </a>
+            <span class="badge"><h4>{{album.album_title}}</h4><br><br>By: <h5>{{ album.artist }}</h5></span>
+            <br><br><br>
+        {% endfor %}
+    </div>
+    </div>
+    <div class="col-sm-6">
+        <h3><p id="song">Move the mouse over to Album image</h3></p>
+    </div>
+
+{% endblock %}
+

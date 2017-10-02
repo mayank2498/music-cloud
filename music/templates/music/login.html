@@ -1,0 +1,59 @@
+{% extends 'music/baselogin.html' %}
+{% block title %} LOGIN {% endblock %}
+{% block body %}
+
+<div class="container">
+	<div class="jumbotron">
+		<h2 align="center" >WELCOME TO THE LOGIN PAGE</h2>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-5">
+	    <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" action="{% url 'music:login_user' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="id_username">
+                            USERNAME :
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="text" maxlength="30" name="username" id="id_username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="id_password">
+                            PASSWORD :
+                        </label>
+                       <div class="col-sm-6">
+                           <input type="password" id="id_password" name="password">
+                       </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-10">
+                                <br><button type="submit" class="btn btn-success">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer">
+                <h4>Dont have an account ? Click <a href="{% url 'music:register' %}">here</a> to register<h3>
+            </div>'
+        </div>
+    </div>
+    <div class="col-sm-offset-9">
+      <h3>Whats in there for you ?</h3><br><br>
+      <h4>You can manage your albums and songs<br>
+          You can also edit and update your albums details
+          {{error_message}}
+      </h4>
+        <small><marquee><span class="badge">-developed by Mayank</span></marquee></small>
+	</div>
+</div>
+</div>
+{% endblock %}
+

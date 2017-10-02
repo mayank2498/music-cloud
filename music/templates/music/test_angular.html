@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="myctrl" ng-init="'textarea':'MAYANK">
+    <p ng-bind="textarea">
+</div>
+
+<script>
+    var url_website = "http://127.0.0.1:8000/music/getjson";
+    var app = angular.module('myapp',[]);
+    app.controller('myctrl', function ($scope, $http) {
+        setInterval(function() {
+            $http.get(url_website).then(function (response) {
+                $scope.myData = response.data;
+                angular.forEach($scope.myData, function (object) {
+                    $scope.textarea += object.fields['album_title'] + "\n";
+                });
+
+            }, function () {
+                alert('there was some error');
+            });
+        },10000);
+    });
+</script>
+</body>
+</html>
